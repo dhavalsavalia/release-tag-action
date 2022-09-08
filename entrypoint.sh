@@ -1,5 +1,11 @@
 #!/bin/sh
-version=${INPUT_PREFIX}$($INPUT_ONLY_MAJOR_VERSION && (cat VERSION | cut -d. -f1) || cat VERSION)${INPUT_SUFFIX}
+if [ $( git rev-parse --abbrev-ref HEAD )  = 'main' ]; then
+    INPUT_PREFIX='v'
+elif  [ $( git rev-parse --abbrev-ref HEAD )  = 'unstable' ]; then
+    INPUT_PREFIX='u'
+fi
+
+version=${INPUT_PREFIX}$(cat VERSION)${INPUT_SUFFIX}
 message=$(echo $INPUT_MESSAGE | sed s/__VERSION__/$version/g)
 git config --global --add safe.directory /github/workspace
 git config user.name $(git log -1 --pretty=format:'%an')
