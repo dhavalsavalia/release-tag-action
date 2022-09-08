@@ -1,7 +1,8 @@
 #!/bin/sh
-if [ $( git rev-parse --abbrev-ref HEAD )  = 'main' ]; then
+echo ${BRANCH_NAME}
+if [ ${BRANCH_NAME}  = 'main' ]; then
     INPUT_PREFIX='v'
-elif  [ $( git rev-parse --abbrev-ref HEAD )  = 'unstable' ]; then
+elif  [ ${BRANCH_NAME}  = 'unstable' ]; then
     INPUT_PREFIX='u'
 fi
 

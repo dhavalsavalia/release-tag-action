@@ -10,8 +10,8 @@ inputs:
     description: Tag message, __VERSION__ will replace its version number
     required: false
     default: release __VERSION__
-  only_major_version:
-    description: Use only major version
+  branch_name:
+    description: Branch that triggered this workflow
     required: false
     default: false
   prefix:
