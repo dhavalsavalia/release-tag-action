@@ -22,6 +22,18 @@ inputs:
     description: Suffix for release tag
     required: false
     default: ''
+  hostname:
+    description: Hostname for yum repo
+    required: false
+    default: ''
+  username:
+    description: username for yum repo
+    required: false
+    default: ''
+  password:
+    description: password for yum repor
+    required: false
+    default: ''
 outputs:
   tag:
     description: Name for release tag
